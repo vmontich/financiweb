@@ -1,0 +1,85 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+<h1>ALTERAR LANÇAMENTO</h1>
+<hr>
+<div class="card">
+    <div class="card-body">
+        <form action="/usuario/lancamentos/editar" method="post">
+            
+            <input type="hidden" name="tipoLancamento" id="tipoLancamento" value="{{lancamento.tipoLancamento}}" tipoLancamento>
+            <input type="hidden" name="idCategoria" id="idCategoria" value="{{lancamento.idCategoria}}">
+            <input type="hidden" name="id" id="id" value="{{lancamento._id}}">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor" value="{{lancamento.valor}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="mx-auto" style="width: 200px;">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input mt-2" type="radio" name="despesaReceita" id="despesa" value="D">
+                            <label class="form-check-label mt-2" for="despesa">Despesa</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="despesaReceita" id="receita" value="R">
+                            <label class="form-check-label" for="receita">Receita</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" value="{{lancamento.descricao}}">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <select class="form-control" name="categoria" id="categoria" value="{{lancamento.idCategoria}}">
+                        <option value="">Selecione uma categoria...</option>
+                        {{#each categorias}}
+                        <option value="{{_id}}">{{nome}}</option>
+                        {{else}}
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="date" class="form-control" name="dataLancamento" id="dataLancamento" value="{{lancamento.dataLancamento}}">
+                </div>
+            </div>
+            <button id="btnCadastrarLancamento" type="submit" class="btn btn-dark mt-3">Alterar</button>
+        </form>
+    </div>
+</div>
+<script>
+
+    function selecionaCategoria() {
+        const options = document.getElementsByTagName("option")
+        const id = document.getElementById("idCategoria").value
+        for(let i=0; i<options.length; i++) {
+            if(options[i].value == id) {
+                options[i].setAttribute("selected", "true")
+            }
+        }
+    }
+
+    selecionaCategoria()
+
+    let objValor = document.getElementById("valor")
+    document.getElementById("despesa").onclick = () => {
+        objValor.classList.remove("text-success")
+        objValor.classList.add("text-danger")
+        document.getElementById("tipoLancamento").value = "D"
+    }
+    document.getElementById("receita").onclick = () => {
+        objValor.classList.remove("text-danger")
+        objValor.classList.add("text-success")
+        document.getElementById("tipoLancamento").value = "R"
+    }
+
+    if(document.querySelector("[tipoLancamento]").value == "D") {
+        document.getElementById("despesa").click()
+    } else {
+        document.getElementById("receita").click()
+    }
+
+</script>
