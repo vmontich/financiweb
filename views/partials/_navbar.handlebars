@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">FinanciWeb</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+            <a class="dropdown-item" href="/usuario/lancamentos/-1">Lançamentos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGestao" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gestão
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+            <a class="dropdown-item" href="/admin/categorias">Categorias</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/admin/usuarios">Usuários</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usuario/registrar">Registrar</a>
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>

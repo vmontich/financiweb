@@ -1,0 +1,34 @@
+{
+  "name": "financiweb",
+  "version": "1.0.0",
+  "description": "- [x] master-dsv\r - [x] master-hmg\r - [x] master-prd",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "currency-formatter": "^1.5.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "express-session": "^1.17.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.22",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmontich/financiweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vmontich/financiweb/issues"
+  },
+  "homepage": "https://github.com/vmontich/financiweb#readme"
+}
